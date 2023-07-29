@@ -1,58 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Circle Drawer</title>
-	<style>
-		#canvas {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			z-index: -1;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-	<canvas id="canvas"></canvas>
-	<script>
-		const canvas = document.getElementById('canvas');
-		canvas.width = window.innerWidth;
-		canvas.height = window.innerHeight;
-		const context = canvas.getContext('2d');
-		let x = 0;
-		let y = 0;
-		let radius = 50;
+    <button id="btn">Random Answer</button>
 
-		function drawCircle() {
-			context.clearRect(0, 0, canvas.width, canvas.height);
-			context.fillStyle = 'red';
-			context.beginPath();
-			context.arc(x, y, radius, 0, 2 * Math.PI);
-			context.fill();
+    <div class="quiz-container">
+        <div class="quiz-item">
+            <h3>Câu 1 : 1 + 1 = ?</h3>
+            <div class="quiz-answer">
+                <div class="quiz-answer-item">
+                    <input type="radio" name="1">
+                    <label>1</label>
+                </div>
+                <div class="quiz-answer-item">
+                    <input type="radio" name="1">
+                    <label>2</label>
+                </div>
+                <div class="quiz-answer-item">
+                    <input type="radio" name="1">
+                    <label>3</label>
+                </div>
+                <div class="quiz-answer-item">
+                    <input type="radio" name="1">
+                    <label>4</label>
+                </div>
+            </div>
+        </div>
+        <div class="quiz-item">
+            <h3>Câu 2 : 2 + 2 = ?</h3>
+            <div class="quiz-answer">
+                <div class="quiz-answer-item">
+                    <input type="radio" name="2">
+                    <label>3</label>
+                </div>
+                <div class="quiz-answer-item">
+                    <input type="radio" name="2">
+                    <label>4</label>
+                </div>
+                <div class="quiz-answer-item">
+                    <input type="radio" name="2">
+                    <label>5</label>
+                </div>
+                <div class="quiz-answer-item">
+                    <input type="radio" name="2">
+                    <label>6</label>
+                </div>
+            </div>
+        </div>
+        <div class="quiz-item">
+            <h3>Câu 3 : 3 + 3 = ?</h3>
+            <div class="quiz-answer">
+                <div class="quiz-answer-item">
+                    <input type="radio" name="3">
+                    <label>3</label>
+                </div>
+                <div class="quiz-answer-item">
+                    <input type="radio" name="3">
+                    <label>4</label>
+                </div>
+                <div class="quiz-answer-item">
+                    <input type="radio" name="3">
+                    <label>5</label>
+                </div>
+                <div class="quiz-answer-item">
+                    <input type="radio" name="3">
+                    <label>6</label>
+                </div>
+            </div>
+        </div>
+    </div>
 
-			if (x + radius > canvas.width || x - radius < 0) {
-				dx = -dx;
-			}
-			if (y + radius > canvas.height || y - radius < 0) {
-				dy = -dy;
-			}
-
-			x += dx;
-			y += dy;
-
-			requestAnimationFrame(drawCircle);
-		}
-
-		window.addEventListener('click', function(e) {
-			x = e.clientX;
-			y = e.clientY;
-			dx = Math.random() * 6 - 3;
-			dy = Math.random() * 6 - 3;
-			radius = 50;
-			drawCircle();
-		});
-	</script>
+    <script src="./main.js"></script>
 </body>
 </html>
